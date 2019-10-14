@@ -36,12 +36,13 @@
                     <p class="check_box">
                         <input id="check1" type="checkbox"> &emsp;&emsp; I would like to receive a free newsletter
                     </p>
-                    <div class="buttons">
+                    <div id="button_1" class="buttons">
                         <p>
                                 Register for this FREE 
                                 live Webinar Here!                                
                         </p>
                     </div>
+                    <p class="response"></p>
                 </div>
             </section>
             
@@ -120,9 +121,11 @@
             <!-- Part 5 -->
             <section id="part_5" class="grid">
                 <div class="content_container"> 
-                    <p>
-                        WARNING: SPACE IS LIMITED & THESE LIVE TRAININGS ALWAYS FILL UP
-                    </p>
+                        <div id="part_5_warning">
+                                <img src="images/RGS_Hotlist_0617_Warning.png" alt="">
+                                <p>WARNING: SPACE IS LIMITED & THESE LIVE TRAININGS ALWAYS FILL UP</p>
+                        </div>
+                    
                 </div>
             </section>
 
@@ -141,15 +144,14 @@
             <section id="part_7" class="grid">
                 <div class="content_container"> 
                     <p class="check_box"><input id="check2" type="checkbox"> &nbsp;&nbsp; I would like to receive a free newsletter</p>
-                    <div class="buttons">
+                    <div id="button_2" class="buttons">
                         <p>
                             YES! Reserve My Spot Now! >>
                         </p>
                     </div> 
+                    <p class="response"></p>
                 </div>
             </section>
-
-
 
         </main>
         <script>
@@ -160,6 +162,28 @@
             function check(){
                 document.getElementById('check1').checked = this.checked;
                 document.getElementById('check2').checked = this.checked;
+            }
+
+            document.getElementById("button_1").addEventListener("click", buttonClicked);
+            document.getElementById("button_2").addEventListener("click", buttonClicked);
+
+
+            function buttonClicked(){
+                if(document.getElementById('check1').checked){
+                    var x = fetch('https://bl45immth4.execute-api.us-east-1.amazonaws.com/production/')
+                    .then(function(response){
+                        response.json()
+                        .then(function(res){
+                            var obj = JSON.parse(res.body);
+                            var responseString= obj.submitok;
+                            document.getElementsByClassName("response")[0].innerHTML = responseString;
+                            document.getElementsByClassName("response")[1].innerHTML = responseString;
+                        })
+                    })
+                }
+                else {
+                    alert("Please check the checkbox before proceeding");
+                }
             }
 
             // Countdown 5 days from when page renders

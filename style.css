@@ -170,12 +170,21 @@ main {
     font-family: arial, sans-serif;
     background-color: #f58c99;
     margin: 0;
-    padding: 1.6em 1em;
+    padding: .9em 1em;
 }
 #part_5 p {
-    margin: 0;
+    margin: 0em;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    height: 2em; 
+}
+
+#part_5 img {
+    display: none;
+}
+#part_5_warning {
+    display: flex;
+    padding: .5em 0 2em 1em;
 }
 
 /* ---- Part 6 Area ---- */
@@ -333,8 +342,30 @@ main {
     #part_4 {
         display: none;
     }
-    #part_5{
-        margin: 0 1em;
+   
+    #part_5 {
+        font-family: arial, sans-serif;
+        background-color: #f58c99;
+        margin: 0 1.1em;
+        padding: 0.6em 2em;
+    }
+    #part_5 p {
+        margin: 1.9em 0em 0 3em;
+        padding-right: 23%;
+        color: white;
+        font-size: 1.2em;
+        padding-left: 0%;
+        width: 80%;
+    }
+    #part_5 img {
+        display: inline;
+        width: 8%;
+        height: 8%;
+        margin: 0;
+    }
+    #part_5_warning {
+        display: flex;
+        padding: .5em 0 2em 1em;
     }
     #part_6{
         margin: 0 1em;
